@@ -50,12 +50,14 @@ int main(void)
 
 int enqueue(int data)
 {
-	if (rear == MAX - 1)
+	int ab = (rear + 1) % MAX;
+	if (ab == front)
 	{
 		printf("Queue overflow.\n");
 		return -1;
 	}
-	q[++rear] = data;
+	rear = ab;
+	q[rear] = data;
 	if (front == -1)
 	{
 		front = 0;
@@ -70,11 +72,11 @@ int dequeue()
 		printf("Queue underflow.\n");
 		return -1;
 	}
-	int d = q[front++];
-	if (front > rear)
+	int d = q[front];
+	front = ++front % MAX;
+	if (front == rear)
 	{
-		rear = -1;
-		front = -1;
+		front = rear = -1;
 	}
 	return d;
 }
@@ -97,9 +99,13 @@ void display()
 		return;
 	}
 
-	for(int i = front; i <= rear; i++)
+	int i = front;
+	while (1)
 	{
 		printf("%d\n", q[i]);
+		if (i == rear)
+			return;
+		i = (i + 1) % MAX;
 	}
 }
 
