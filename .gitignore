@@ -1,3 +1,7 @@
+# After compilation
+a.out
+vgcore.*
+
 # Prerequisites
 *.d
 
