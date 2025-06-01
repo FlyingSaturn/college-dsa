@@ -1,6 +1,6 @@
 # After compilation
-*/a.out
-*/vgcore.*
+a.out
+vgcore.*
 
 # Prerequisites
 *.d
