@@ -59,31 +59,31 @@ int main(void)
 }
 
 
-    int binary_recurse(int a[], int s, int low, int high)
+int binary_recurse(int a[], int s, int low, int high)
+{
+    if (low > high)
+        return -1;
+    int p = (low + high) / 2;
+    if (a[p] < s)
+        return binary_recurse(a, s, p + 1, high);
+    if (a[p] > s)
+        return binary_recurse(a, s, low, p - 1);
+    if (a[p] == s)
+        return p;
+}
+
+int binary_iter(int a[], int s, int n)
+{
+    int low = 0, high = n - 1, p = 0;
+    while (low <= high)
     {
-        if (low > high)
-            return -1;
-        int p = (low + high) / 2;
+        p = (low + high) / 2;
         if (a[p] < s)
-            return binary_recurse(a, s, p + 1, high);
+            low = p + 1;
         if (a[p] > s)
-            return binary_recurse(a, s, low, p - 1);
+            high = p - 1;
         if (a[p] == s)
             return p;
     }
-
-    int binary_iter(int a[], int s, int n)
-    {
-        int low = 0, high = n - 1, p = 0;
-        while (low <= high)
-        {
-	    p = (low + high) / 2;
-            if (a[p] < s)
-                low = p + 1;
-            if (a[p] > s)
-                high = p - 1;
-            if (a[p] == s)
-                return p;
-        }
-        return -1;
-    }
+    return -1;
+}
