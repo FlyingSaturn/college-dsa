@@ -1,4 +1,4 @@
-include <stdio.h>
+#include <stdio.h>
 
 int linear_search(int a[], int s, int current, int n);
 
