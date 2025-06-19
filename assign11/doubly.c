@@ -72,6 +72,11 @@ int main(void)
 void create_dll_node(node** head, int d)
 {
     *head = (node*) malloc(sizeof(node));
+    if (*head == NULL)
+    {
+        printf("Can't alloc. Exitting...\n");
+        exit(1);
+    }
     (*head)->data = d;
     (*head)->prev = NULL;
     (*head)->next = NULL;
