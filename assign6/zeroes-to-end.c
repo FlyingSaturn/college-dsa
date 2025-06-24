@@ -17,24 +17,7 @@ int main(void)
     printf("Array elements:\n");
     for (int i = 0; i < n; i++)
         printf("%d\n", a[i]);
-}
-
-void insertion(int* a, int n)
-{
-    for (int i = n - 2; i >= 0; i--)
-    {
-        int key = a[i];
-        if (key != 0)
-            continue;
-
-        int j = i + 1;
-        while (j <= n - 1 && a[j] != key)
-        {
-                a[j - 1] = a[j];
-                j++;
-        }
-        a[j - 1] = key;
-    }
+    free(a);
 }
 
 // Pushing non-zeroes to the left
@@ -58,3 +41,23 @@ void two_pointers(int* a, int n)
         }
     }
 }
+
+void insertion(int* a, int n)
+{
+    for (int i = n - 2; i >= 0; i--)
+    {
+        int key = a[i];
+        if (key != 0)
+            continue;
+
+        int j = i + 1;
+        while (j <= n - 1 && a[j] != key)
+        {
+                a[j - 1] = a[j];
+                j++;
+        }
+        a[j - 1] = key;
+    }
+}
+
+

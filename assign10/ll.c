@@ -32,7 +32,7 @@ int main(void)
                 printf("Number to insert: ");
                 scanf("%d", &d);
                 ll = create_ll_node(ll, d);
-                printf("Doubly linked list created!\n");
+                printf("Linked list created!\n");
                 break;
             case 2:
                 if (ll == NULL)

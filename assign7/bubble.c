@@ -6,7 +6,7 @@ int main(void)
     printf("n: ");
     scanf("%d", &n);
     int a[n];
-    printf("The array of %d numbers: ");
+    printf("The array of %d numbers: ", n);
     for (int i = 0; i < n; i++)
        scanf("%d", &a[i]);
     for(int i = 0; i < n; i++)

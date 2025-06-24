@@ -54,7 +54,7 @@ void initialize()
 
 void push(int data)
 {
-    if (top >= a + MAX)
+    if (top >= a + MAX - 1)
     {
         printf("Stack overflow.\n");
             return;
